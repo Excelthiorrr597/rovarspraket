@@ -129,37 +129,35 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  * i.e. findLongestWord("book dogs") should return "book"
  */
 function onlyLetters(word) {
+    var count = 0
     for (var i = 0; i < word.length; i++) {  
-        if (65<=word.charCodeAt(i) && word.charCodeAt(i)<=90 
-            || 97<= word.charCodeAt(i) && word.charCodeAt(i) <=122) 
+        if (65<=word.charCodeAt(i) && word.charCodeAt(i)<=90 || 97<= word.charCodeAt(i) && word.charCodeAt(i) <=122) 
         {
-            continue;
+            count++;
         }
         else {
-            return false;
+            continue;
         } 
     }
-    return true
+    return count
 }
 
 
 function findLongestWord(sentence) {
 
-
+    var l = 0
     var split = sentence.split(" ")
     var longest = 0;
     var longestWord = 0;
 
     for (var i=0; i < split.length; i++) {
-        if (longest < split[i].length) {
-        if (onlyLetters(split[i])) {
-            
-                longest = split[i].length
-                longestWord = split[i]
+        if ((l = onlyLetters(split[i])) > longest) { 
+            longest = l
+            longestWord = split[i]
             }
         }
-    }
 
+    console.log(longestWord)
     return longestWord
 }
 
