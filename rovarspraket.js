@@ -9,8 +9,9 @@ function max(a, b){
     if (a >= b) {
     	return a;
     }
-    else
+    else {
     	return b;
+    }
 }
 
 console.assert(max(1,3) === 3);
